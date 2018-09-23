@@ -2,7 +2,7 @@
 'use strict';
 
 angular.module('dnsim').factory('quickAdd', quickAdd);
-function quickAdd(dntData, translations, itemColumnsToLoad, itemCategory,itemFactory,jobs,hCodeValues, quickAddSteps, quickAddHelper) {
+function quickAdd(quickAddSteps, quickAddHelper) {
 
   return {
     categorySteps: {
@@ -11,15 +11,15 @@ function quickAdd(dntData, translations, itemColumnsToLoad, itemCategory,itemFac
       armour: ['exchangeStep','levelStep','rankStep','itemNameStep','hasStatStep','itemStep','enhanceEqStep'],
       accessories: ['accExchangeStep','levelStep','rankStep','itemNameStep','hasStatStep','itemStep'],
       techs: ['exchangeStep','levelStep','rankStep','techSkillStep','itemNameStep','hasStatStep','itemStep'],
-      'offensive gems': ['levelStep','gemRankStep','itemNameStep','numStatsStep','hasStatStep','itemStep','enhanceGemStep'],
-      'increasing gems': ['levelStep','gemRankStep','itemNameStep','numStatsStep','hasStatStep','itemStep','enhanceGemStep'],
+      'offensive gems': ['levelStep','gemRankStep','itemNameStep','hasStatStep','hasStatStep','itemStep','enhanceGemStep'],
+      'increasing gems': ['levelStep','gemRankStep','itemNameStep','hasStatStep','hasStatStep','itemStep','enhanceGemStep'],
       'enhancement plates': ['levelStep','rankStep','distinctItemNameStep','numStatsStep','hasStatStep','itemStep'],
       'expedition plates': ['levelStep','distinctItemNameStep','numStatsStep','highStatStep','hasStatStep','itemStep'],
       talisman: ['levelStep','talismanRankStep','distinctItemNameStep','numStatsStep','hasStatStep','itemStep','enhanceTalismanStep'],
       costume: ['exchangeStep','rankStep','itemNameStep','itemStep'],
       imprint: ['rankStep','itemNameStep','highStatStep','itemStep'],
       cash: ['accExchangeStep','rankStep','itemNameStep','itemStep'],
-      custom: ['customStep'],
+      custom: [],
     },
     getOptions: function(category, build, datas) {
       var t = this;

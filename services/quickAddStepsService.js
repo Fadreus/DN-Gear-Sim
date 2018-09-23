@@ -2,7 +2,7 @@
 'use strict';
 
 angular.module('dnsim').factory('quickAddSteps', quickAddSteps);
-function quickAddSteps(dntData, translations, itemColumnsToLoad, itemCategory,itemFactory,jobs,hCodeValues, quickAddHelper) {
+function quickAddSteps(dntData, translations, itemFactory, hCodeValues, quickAddHelper) {
 
   return {
       exchangeStep: {
@@ -27,7 +27,7 @@ function quickAddSteps(dntData, translations, itemColumnsToLoad, itemCategory,it
               continue;
             }
             
-            var exchange = dntData.find('exchange.lzjson','ExchangeType',exId);
+            var exchange = dntData.find('exchange.json','ExchangeType',exId);
             var exName = '';
             if(exchange && exchange.length > 0 && exchange[0].NameID > 0) {
               exName = translations.translate(exchange[0].NameID).toLowerCase();
@@ -68,7 +68,7 @@ function quickAddSteps(dntData, translations, itemColumnsToLoad, itemCategory,it
               }
             }
             
-            var exchange = dntData.find('exchange.lzjson','ExchangeType',exId);
+            var exchange = dntData.find('exchange.json','ExchangeType',exId);
             if(exchange && exchange.length > 0 && exchange[0].NameID > 0) {
               var exName = translations.translate(exchange[0].NameID).toLowerCase();
               
@@ -91,12 +91,6 @@ function quickAddSteps(dntData, translations, itemColumnsToLoad, itemCategory,it
           { id: 93, name: 'level 93' },
           { id: 90, name: 'level 90' },
           { id: 80, name: 'level 80' },
-          { id: 70, name: 'level 70' }, 
-          { id: 60, name: 'level 60' }, 
-          { id: 50, name: 'level 50' }, 
-          { id: 40, name: 'level 40' }, 
-          { id: 32, name: 'level 32' }, 
-          { id: 24, name: 'level 24' }, 
           ];
         },
         matchesItem: function(id, item) {
@@ -205,6 +199,7 @@ function quickAddSteps(dntData, translations, itemColumnsToLoad, itemCategory,it
               case 2033: // Grief-stricken
               case 1313: // Jakard's Demise
               case 2188: // Teary eyed
+              case 2252: // Teardrop
               // case 1280: // Dragon Tamer
               // case 339: // Cow Wrangler
                 usefulTitles.push(allTitles[i]);
